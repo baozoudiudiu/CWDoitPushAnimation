@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xu7-ml-Tiw">
-                                <rect key="frame" x="20" y="84" width="48" height="48"/>
+                                <rect key="frame" x="280" y="464" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="OCd-Xf-PaB"/>
                                     <constraint firstAttribute="width" constant="48" id="hjf-83-Qv8"/>
@@ -42,8 +42,8 @@
                             <constraint firstAttribute="trailing" secondItem="89A-wa-nCf" secondAttribute="trailing" id="J81-A2-kAV"/>
                             <constraint firstItem="89A-wa-nCf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="TsG-qr-Amz"/>
                             <constraint firstItem="1Zp-KU-G03" firstAttribute="top" secondItem="89A-wa-nCf" secondAttribute="bottom" id="XA1-i4-Fxn"/>
-                            <constraint firstItem="Xu7-ml-Tiw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="bnp-aJ-sQI"/>
-                            <constraint firstItem="Xu7-ml-Tiw" firstAttribute="top" secondItem="AhY-04-MqU" secondAttribute="bottom" constant="20" id="fr5-pl-9BD"/>
+                            <constraint firstItem="Xu7-ml-Tiw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="280" id="bnp-aJ-sQI"/>
+                            <constraint firstItem="Xu7-ml-Tiw" firstAttribute="top" secondItem="AhY-04-MqU" secondAttribute="bottom" constant="400" id="fr5-pl-9BD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vtd-S1-YYE"/>

@@ -110,7 +110,7 @@
     self.shapeLayer = shapeLayer;
     
     UIBezierPath *bPath2 = [UIBezierPath bezierPathWithArcCenter:center
-                                                          radius:sqrt(pow(CGRectGetWidth(toView.frame) - center.x, 2) + pow(CGRectGetHeight(toView.frame) - center.y, 2))
+                                                          radius:[self maxRadius:center frame:toView.frame]
                                                       startAngle:0
                                                         endAngle:M_PI * 2
                                                        clockwise:YES];
@@ -134,6 +134,12 @@
     baseAnimation.removedOnCompletion = NO;
     baseAnimation.fillMode = kCAFillModeForwards;
     [shapeLayer addAnimation:baseAnimation forKey:@"pushAnimation"];
+}
+
+- (CGFloat)maxRadius:(CGPoint)center frame:(CGRect)frame {
+    CGFloat HSpace = CGRectGetWidth(frame) - center.x;
+    CGFloat VSpace = CGRectGetHeight(frame) - center.y;
+    return sqrt(pow(MAX(HSpace, center.x), 2) + pow(MAX(center.y, VSpace), 2));
 }
 
 
