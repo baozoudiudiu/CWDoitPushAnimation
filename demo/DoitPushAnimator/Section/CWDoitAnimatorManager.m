@@ -105,36 +105,40 @@
                                                      startAngle:0
                                                        endAngle:M_PI * 2
                                                       clockwise:YES];
-    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    shapeLayer.path = bPath.CGPath;
-    self.shapeLayer = shapeLayer;
-    
     UIBezierPath *bPath2 = [UIBezierPath bezierPathWithArcCenter:center
                                                           radius:[self maxRadius:center frame:toView.frame]
                                                       startAngle:0
                                                         endAngle:M_PI * 2
                                                        clockwise:YES];
+    UIView *animationView = self.type == CWDoitAnimatorTypePush ? toView : fromView;
+    [containerView bringSubviewToFront:animationView];
+    [self addAnimation:bPath targetPath:bPath2 animationView:animationView];
+    
+}
+
+
+- (void)addAnimation:(UIBezierPath *)originPath targetPath:(UIBezierPath *)targetPath animationView:(UIView *)animationView {
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    self.shapeLayer = shapeLayer;
     CABasicAnimation *baseAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-    if(self.type == CWDoitAnimatorTypePush)
-    {
-        baseAnimation.fromValue = (__bridge id)(bPath.CGPath);
-        baseAnimation.toValue = (__bridge id)(bPath2.CGPath);
-        [containerView sendSubviewToBack:fromView];
-        [toView.layer setMask:shapeLayer];
-    }
-    else
-    {
-        baseAnimation.toValue = (__bridge id)(bPath.CGPath);
-        baseAnimation.fromValue = (__bridge id)(bPath2.CGPath);
-        [containerView sendSubviewToBack:toView];
-        [fromView.layer setMask:shapeLayer];
-    }
     baseAnimation.duration = self.animationDuring;
     baseAnimation.delegate = self;
     baseAnimation.removedOnCompletion = NO;
     baseAnimation.fillMode = kCAFillModeForwards;
+    if(self.type == CWDoitAnimatorTypePush)
+    {
+        baseAnimation.fromValue = (__bridge id)(originPath.CGPath);
+        baseAnimation.toValue = (__bridge id)(targetPath.CGPath);
+    }
+    else
+    {
+        baseAnimation.toValue = (__bridge id)(originPath.CGPath);
+        baseAnimation.fromValue = (__bridge id)(targetPath.CGPath);
+    }
+    [animationView.layer setMask:shapeLayer];
     [shapeLayer addAnimation:baseAnimation forKey:@"pushAnimation"];
 }
+
 
 - (CGFloat)maxRadius:(CGPoint)center frame:(CGRect)frame {
     CGFloat HSpace = CGRectGetWidth(frame) - center.x;
