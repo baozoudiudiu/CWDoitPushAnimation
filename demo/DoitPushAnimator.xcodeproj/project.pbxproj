@@ -52,6 +52,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28381E09218A8ABC0059F13C /* System */ = {
+			isa = PBXGroup;
+			children = (
+				28EE78C721894AED0027B93F /* Info.plist */,
+				28EE78C821894AED0027B93F /* main.m */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		28381E0A218A8AEE0059F13C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28EE78C221894AED0027B93F /* Assets.xcassets */,
+				28BF0E78218987ED00C4B1F6 /* 153438067089.jpg */,
+				28BF0E762189876900C4B1F6 /* 1534380752571.jpg */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		28381E0B218A8B170059F13C /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				28EE78BF21894AEB0027B93F /* Main.storyboard */,
+				28EE78C421894AED0027B93F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		28381E0C218A8B380059F13C /* class */ = {
+			isa = PBXGroup;
+			children = (
+				28EE78D321894DC80027B93F /* CWDoitAnimatorManager.h */,
+				28EE78D421894DC80027B93F /* CWDoitAnimatorManager.m */,
+				28BF0E7A21899B9F00C4B1F6 /* UINavigationController+DoitAnimation.h */,
+				28BF0E7B21899B9F00C4B1F6 /* UINavigationController+DoitAnimation.m */,
+			);
+			path = class;
+			sourceTree = "<group>";
+		};
 		28EE78AD21894AEA0027B93F = {
 			isa = PBXGroup;
 			children = (
@@ -74,13 +113,9 @@
 				28EE78B921894AEB0027B93F /* AppDelegate.h */,
 				28EE78BA21894AEB0027B93F /* AppDelegate.m */,
 				28EE78CF21894B0C0027B93F /* Section */,
-				28EE78BF21894AEB0027B93F /* Main.storyboard */,
-				28EE78C221894AED0027B93F /* Assets.xcassets */,
-				28EE78C421894AED0027B93F /* LaunchScreen.storyboard */,
-				28EE78C721894AED0027B93F /* Info.plist */,
-				28EE78C821894AED0027B93F /* main.m */,
-				28BF0E78218987ED00C4B1F6 /* 153438067089.jpg */,
-				28BF0E762189876900C4B1F6 /* 1534380752571.jpg */,
+				28381E0B218A8B170059F13C /* Storyboard */,
+				28381E0A218A8AEE0059F13C /* Sources */,
+				28381E09218A8ABC0059F13C /* System */,
 			);
 			path = DoitPushAnimator;
 			sourceTree = "<group>";
@@ -92,10 +127,7 @@
 				28EE78BD21894AEB0027B93F /* ViewController.m */,
 				28EE78D021894B2D0027B93F /* NextViewController.h */,
 				28EE78D121894B2D0027B93F /* NextViewController.m */,
-				28EE78D321894DC80027B93F /* CWDoitAnimatorManager.h */,
-				28EE78D421894DC80027B93F /* CWDoitAnimatorManager.m */,
-				28BF0E7A21899B9F00C4B1F6 /* UINavigationController+DoitAnimation.h */,
-				28BF0E7B21899B9F00C4B1F6 /* UINavigationController+DoitAnimation.m */,
+				28381E0C218A8B380059F13C /* class */,
 			);
 			path = Section;
 			sourceTree = "<group>";
