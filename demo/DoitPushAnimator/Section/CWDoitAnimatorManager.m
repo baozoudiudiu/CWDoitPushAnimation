@@ -96,8 +96,11 @@
 
 
 - (void)AnimationWithFromVC:(UIViewController *)fromVC fromView:(UIView *)fromView toVC:(UIViewController *)toVC toView:(UIView *)toView containerView:(UIView *)containerView context:(id<UIViewControllerContextTransitioning>)context {
+    
     _context = context;
     [containerView addSubview:toView];
+    UIView *animationView = self.type == CWDoitAnimatorTypePush ? toView : fromView;
+    [containerView bringSubviewToFront:animationView];
     CGPoint center = CGPointMake(self.manager.originRect.origin.x + CGRectGetWidth(self.manager.originRect) * 0.5,
                                  self.manager.originRect.origin.y + CGRectGetHeight(self.manager.originRect) * 0.5);
     UIBezierPath *bPath = [UIBezierPath bezierPathWithArcCenter:center
@@ -106,14 +109,11 @@
                                                        endAngle:M_PI * 2
                                                       clockwise:YES];
     UIBezierPath *bPath2 = [UIBezierPath bezierPathWithArcCenter:center
-                                                          radius:[self maxRadius:center frame:toView.frame]
+                                                          radius:[self maxRadius:center frame:animationView.frame]
                                                       startAngle:0
                                                         endAngle:M_PI * 2
                                                        clockwise:YES];
-    UIView *animationView = self.type == CWDoitAnimatorTypePush ? toView : fromView;
-    [containerView bringSubviewToFront:animationView];
     [self addAnimation:bPath targetPath:bPath2 animationView:animationView];
-    
 }
 
 
